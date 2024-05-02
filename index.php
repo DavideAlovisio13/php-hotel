@@ -1,5 +1,10 @@
 <?php
 include __DIR__ . "/Models/db.php";
+
+$parking = isset($_GET['parking']) ? $_GET['parking'] : null;
+$hotels = array_filter($hotels, function ($hotel) use ($parking) {
+    return $parking ? $hotel['parking'] : true;
+});
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +21,11 @@ include __DIR__ . "/Models/db.php";
 
 <body>
     <main>
+        <form action="" method="GET" class="bg-dark p-3 text-white">
+            <label for="parking">Mostra solo hotel con parcheggio:</label>
+            <input type="checkbox" id="parking" name="parking" value="1">
+            <input type="submit" value="Filtra">
+        </form>
         <table class="table table-dark">
             <thead>
                 <tr>
