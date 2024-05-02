@@ -2,8 +2,10 @@
 include __DIR__ . "/Models/db.php";
 
 $parking = isset($_GET['parking']) ? $_GET['parking'] : null;
-$hotels = array_filter($hotels, function ($hotel) use ($parking) {
-    return $parking ? $hotel['parking'] : true;
+$vote = isset($_GET['vote']) ? $_GET['vote'] : null;
+
+$hotels = array_filter($hotels, function ($hotel) use ($parking, $vote) {
+    return ($parking ? $hotel['parking'] : true) && ($vote ? $hotel['vote'] >= $vote : true);
 });
 ?>
 
@@ -24,6 +26,10 @@ $hotels = array_filter($hotels, function ($hotel) use ($parking) {
         <form action="" method="GET" class="bg-dark p-3 text-white">
             <label for="parking">Mostra solo hotel con parcheggio:</label>
             <input type="checkbox" id="parking" name="parking" value="1">
+
+            <label for="vote " class="ms-3">Voto minimo:</label>
+            <input type="number" id="vote" name="vote" min="1" max="5">
+
             <input type="submit" value="Filtra">
         </form>
         <table class="table table-dark">
