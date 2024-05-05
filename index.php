@@ -30,7 +30,7 @@ $hotels = array_filter($hotels, function ($hotel) use ($parking, $vote) {
 </head>
 
 <body>
-    <main>
+    <main class="container mt-4 ">
         <form action="" method="GET" class="bg-dark p-3 text-white">
             <label for="parking">Mostra solo hotel con parcheggio:</label>
             <input type="checkbox" id="parking" name="parking" value="1">
