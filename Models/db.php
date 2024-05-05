@@ -40,11 +40,10 @@ $hotels = [
 
 ];
 
-
 $users = [
-    ['id' => 1, 'email' => 'user1@example.com', 'password' => 'password1'],
-    ['id' => 2, 'email' => 'user2@example.com', 'password' => 'password2'],
-    ['id' => 3, 'email' => 'user3@example.com', 'password' => 'password3'],
-    ['id' => 4, 'email' => 'user4@example.com', 'password' => 'password4'],
-    ['id' => 5, 'email' => 'user5@example.com', 'password' => 'password5'],
+    ['id' => 1, 'email' => 'alice@example.com', 'password' => 'securePassword1'],
+    ['id' => 2, 'email' => 'bob@example.com', 'password' => 'securePassword2'],
+    ['id' => 3, 'email' => 'charlie@example.com', 'password' => 'securePassword3'],
+    ['id' => 4, 'email' => 'david@example.com', 'password' => 'securePassword4'],
+    ['id' => 5, 'email' => 'eve@example.com', 'password' => 'securePassword5'],
 ];

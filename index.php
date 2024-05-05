@@ -1,5 +1,12 @@
 <?php
+session_start();
+
 include __DIR__ . "/Models/db.php";
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
 
 $parking = isset($_GET['parking']) ? $_GET['parking'] : null;
 $vote = isset($_GET['vote']) ? $_GET['vote'] : null;
@@ -7,6 +14,7 @@ $vote = isset($_GET['vote']) ? $_GET['vote'] : null;
 $hotels = array_filter($hotels, function ($hotel) use ($parking, $vote) {
     return ($parking ? $hotel['parking'] : true) && ($vote ? $hotel['vote'] >= $vote : true);
 });
+
 ?>
 
 <!DOCTYPE html>
