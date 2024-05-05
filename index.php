@@ -64,6 +64,9 @@ $hotels = array_filter($hotels, function ($hotel) use ($parking, $vote) {
                 ?>
             </tbody>
         </table>
+        <form action="logout.php" method="POST">
+            <input type="submit" value="Logout">
+        </form>
     </main>
 </body>
 
